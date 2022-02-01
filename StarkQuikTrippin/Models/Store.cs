@@ -8,18 +8,22 @@ namespace StarkQuikTrippin.Models
 {
     internal class Store
     {
-        public Store(int storeNumber)
+        public Store(int storeNumber, double gasYearly, double gasCurrent, double retailYearly, double retailCurrent)
         {
             StoreNumber = storeNumber;
+            GasYearly = gasYearly;
+            GasCurrent = gasCurrent;
+            RetailYearly = retailYearly;
+            RetailYearly = retailCurrent;
         }
 
         public int StoreNumber { get; set; }
-        public int GasYearly { get; set; }
-        public int GasCurrent { get; set; }
+        public double GasYearly { get; set; }
+        public double GasCurrent { get; set; }
 
-        public int RetailYearly { get; set;}
+        public double RetailYearly { get; set;}
 
-        public int RetailCurrent { get; set; }
+        public double RetailCurrent { get; set; }
     }
 
 }

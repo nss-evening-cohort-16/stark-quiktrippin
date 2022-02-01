@@ -8,5 +8,8 @@ namespace StarkQuikTrippin.Models
 {
     internal class Associate : Employee
     {
+        public Associate(string name, string title, double retailSales) : base(name, title, retailSales)
+        {
+        }
     }
 }

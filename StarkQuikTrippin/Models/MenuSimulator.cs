@@ -21,5 +21,15 @@ QuikTrip Management Systems
 
 ");
         }
+
+        // if 1 is entered enter district sales
+        // if 2 s entered generate district report
+        // if 3 is entered add a new employee
+        // if 4 is entered add a store/district
+            // another menu 1. enter district - if selected build new district
+             //             2. enter store - if selected build new store
+        // 5. if selected Exit applcation
+
+
     }
 }
