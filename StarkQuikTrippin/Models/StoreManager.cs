@@ -8,5 +8,8 @@ namespace StarkQuikTrippin.Models
 {
     internal class StoreManager : Employee
     {
+        public StoreManager(string name, string title, double retailSales) : base(name, title, retailSales)
+        {
+        }
     }
 }
