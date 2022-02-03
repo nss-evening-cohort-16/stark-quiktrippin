@@ -65,7 +65,7 @@ Enter district name and then add stores.
                         break;
                     case 4:
                         EnterStoreDistrictMenu();
-                        StoreDistricOption();
+                        CreateDistrict();
                         break;
                     case 5: break;
                     default:
@@ -74,13 +74,6 @@ Enter district name and then add stores.
                 }
             }
         }
-
-        public void StoreDistricOption()
-        { CreateDistrict();
-                //GetStores();
-        }
-
-    
 
         public void CreateStore()
         {
@@ -132,32 +125,7 @@ Enter district name and then add stores.
             }
         }
         
-        
-        
-        
-//        public void GetStores()
-
-//        {
-//            if (_stores.Count > 0)
-//            {
-//                Console.Clear();
-//                foreach (var store in _stores)
-//                {
-//                    Console.WriteLine($@"
-//Store Number: {store.StoreNumber}
-
-//");
-//                    Console.Clear();
-//                    StartApp();
-//                }
-//            }
-//            else
-//            {
-//                Console.WriteLine("Please add Stores first");
-//                EnterStoreDistrictMenu();
-//                StoreDistricOption();
-//            }
-//        }
+       
     public void GenerateDisttrictReport()
         { Console.WriteLine($@"
 District Sales Report
@@ -165,16 +133,19 @@ District Sales Report
             foreach (Store store in _stores)
             {
                 Console.WriteLine($@"
-{store.StoreNumber}
+Store {store.StoreNumber}
 ----------------------------------
 1. Store Manager
-
+   {store.StoreManager}
+     Retail Sales: {store.StoreManagerSales}
 
 2. Assistant Manager
+   {store.AssistantManager}
+     Retail Sales: {store.AssistantManagerSales}
 
-
-3.Associate
-
+3. Associate
+   {store.Associate}
+     Retail Sales: {store.AssociateSales}
 
 GasYearly: {store.GasYearly}
 Gas Current quarter: {store.GasCurrent}
