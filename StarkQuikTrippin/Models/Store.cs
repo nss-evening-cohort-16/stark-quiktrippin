@@ -8,19 +8,27 @@ namespace StarkQuikTrippin.Models
 {
     internal class Store
     {
-        public Store(int storeNumber, double gasYearly, double gasCurrent, double retailYearly, double retailCurrent)
+        public Store(int storeNumber, double gasYearly, double gasCurrent, double retailYearly, double retailCurrent, string storeManger, string assistantManager, string associate, double storeManagerSales, double assistantManagerSales, double associateSales)
         {
             StoreNumber = storeNumber;
             GasYearly = gasYearly;
             GasCurrent = gasCurrent;
             RetailYearly = retailYearly;
-            RetailYearly = retailCurrent;
+            RetailCurrent = retailCurrent;
+            StoreManager = storeManger;
+            AssistantManager = assistantManager;    
+            Associate = associate;
+            StoreManagerSales = storeManagerSales;
+            AssistantManagerSales = assistantManagerSales;
+            AssociateSales = associateSales;
         }
         public Store(int storeNumber)
         {
             storeNumber = StoreNumber;
         }
-
+        public string StoreManager { get; set; }
+        public string AssistantManager { get; set; }
+        public string Associate { get; set; } 
         public int StoreNumber { get; set; }
         public double GasYearly { get; set; }
         public double GasCurrent { get; set; }
@@ -28,6 +36,9 @@ namespace StarkQuikTrippin.Models
         public double RetailYearly { get; set;}
 
         public double RetailCurrent { get; set; }
+        public double StoreManagerSales { get; set; }
+        public double AssistantManagerSales { get; set; }
+        public double AssociateSales { get; set; }
         public List <Employee> storeStaff { get; set; } = new List<Employee> ();
         public void HireEmployees(Employee employee)
 
@@ -37,9 +48,3 @@ namespace StarkQuikTrippin.Models
     }
 
 }
-//Sales for Store #518
-
-//Gas Yearly: $1, 037, 648
-//Gas Current quarter: $96, 117
-//Retail Yearly: $1, 823, 294
-//Retail Current quarter: $84, 445

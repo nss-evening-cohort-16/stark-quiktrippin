@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace StarkQuikTrippin.Models
 {
 
-    /// YEARLY totals quarter totals x 4
-    // yearly retail totals of all 
+ 
     internal class StoreFactory
     {
         public Store BuildNewStore()
@@ -26,15 +25,27 @@ namespace StarkQuikTrippin.Models
 
                 if (storeNumber == "0")
                 {
-                    return new Store(0, 0, 0, 0, 0);
+                    return new Store(0, 0, 0, 0, 0, "", "", "", 0, 0, 0);
                 }
             }
             successful = false;
+
+            Console.WriteLine("Please enter store manager name:");
+            var storeManager = Console.ReadLine();
+
+            Console.WriteLine("Please enter assistant store manger name:");
+            var assistantManager = Console.ReadLine();
+
+            Console.WriteLine("Please enter associate name");
+            var associate = Console.ReadLine();
+
             double parsedGasYearly = 0; 
             double parsedGasCurrent = 0;
             double parsedRetailYearly = 0;
             double parsedRetailCurrent = 0;
-
+            double parsedStoreManagerSales = 0;
+            double parsedAssistantMangerSales = 0;
+            double parsedAssociateSales = 0;
             while (!successful)
             {
                 Console.WriteLine($"Enter {parsedStoreNumber}'s Gas Yearly Total:");
@@ -63,14 +74,34 @@ namespace StarkQuikTrippin.Models
                 var retailCurrent = Console.ReadLine();
                 successful = double.TryParse(retailCurrent, out parsedRetailCurrent);
             }
-            successful = false; 
+            successful = false;
+            while (!successful)
+            {
+                Console.WriteLine($"Enter Store Manager {storeManager}'s sales:");
+                var storeMangerSales = Console.ReadLine();
+                successful = double.TryParse(storeMangerSales, out parsedStoreManagerSales);
+            }
+            successful = false;
+            while (!successful)
+            {
+                Console.WriteLine($"Enter Assistant Manager {assistantManager}'s sales: ");
+                var assistantManagerSales = Console.ReadLine();
+                successful = double.TryParse(assistantManagerSales, out parsedAssistantMangerSales);
+            }
+            successful = false;
+            while(!successful)
+            {
+                Console.WriteLine($"Enter Associate {associate}'s sales:");
+                var associateSales = Console.ReadLine();
+                successful = double.TryParse(associateSales, out parsedAssociateSales);
+            }
 
-            var retVal = new Store(parsedStoreNumber, parsedGasYearly, parsedGasCurrent, parsedRetailYearly, parsedRetailCurrent);
+            var retVal = new Store(parsedStoreNumber, parsedGasYearly, parsedGasCurrent, parsedRetailYearly, parsedRetailCurrent, storeManager, assistantManager, associate, parsedStoreManagerSales, parsedAssistantMangerSales, parsedAssociateSales);
             return retVal;
         }
 
         
-        // add store to list 
+        
       
 
        
@@ -78,4 +109,3 @@ namespace StarkQuikTrippin.Models
     }
 
 
-// add employees to storeTeam list
