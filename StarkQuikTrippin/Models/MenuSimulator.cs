@@ -111,6 +111,7 @@ Enter district name and then add stores.
                
                     _districts.Add(newDistrict);
                     CreateStore();
+            StartApp();
 
         }
         public List<District> _districts = new List<District>();
