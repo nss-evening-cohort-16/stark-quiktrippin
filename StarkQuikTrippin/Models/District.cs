@@ -17,5 +17,12 @@ namespace StarkQuikTrippin.Models
 
         public string Name { get; set; }
         public string DistrictManagerName { get; set; }
+        public List<Store> Stores { get; set; }
+        public void  AddStoreToDistrict(Store storeNumber)
+        {
+            Stores.Add(storeNumber);
+             
+        }
+   
     }
 }

@@ -31,6 +31,22 @@ namespace StarkQuikTrippin.Models
 Retail Sales: {RetailSales}
 ");
         }
+
+
+        public void CreateEmployee()
+        {
+            var employee1 = new EmployeeFactory();
+            var buildingEmployee = true;
+            while (buildingEmployee)
+            {
+                var newEmployee = employee1.BuildNewEmployee();
+                if (newEmployee.EmployeeName != "")
+                {
+                    //add employee to store
+                }
+                else buildingEmployee = false;
+            }
+        }
     }
 }
 // print employee info

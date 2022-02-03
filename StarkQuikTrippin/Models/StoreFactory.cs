@@ -8,7 +8,7 @@ namespace StarkQuikTrippin.Models
 {
 
     /// YEARLY totals quarter totals x 4
-    // yearly retail totals of all employees
+    // yearly retail totals of all 
     internal class StoreFactory
     {
         public Store BuildNewStore()
@@ -19,12 +19,12 @@ namespace StarkQuikTrippin.Models
             while (!successful)
             {
 
-                var question1 = "Please Enter Store Number(leave blank to end):";
+                var question1 = "Please Enter Store Number(type 0 to end):";
                 Console.WriteLine(question1);
                 var storeNumber = Console.ReadLine();
                 successful = int.TryParse(storeNumber, out parsedStoreNumber);
 
-                if (storeNumber == "")
+                if (storeNumber == "0")
                 {
                     return new Store(0, 0, 0, 0, 0);
                 }
@@ -63,24 +63,19 @@ namespace StarkQuikTrippin.Models
                 var retailCurrent = Console.ReadLine();
                 successful = double.TryParse(retailCurrent, out parsedRetailCurrent);
             }
+            successful = false; 
 
             var retVal = new Store(parsedStoreNumber, parsedGasYearly, parsedGasCurrent, parsedRetailYearly, parsedRetailCurrent);
             return retVal;
         }
-        static List<Store> _storeTeam = new List<Store>();
 
-        public void AddEmployeeToStore(int storeNumber)
-        {
-
-        }
-        static List<Store> _stores = new List<Store>();
+        
         // add store to list 
-        public List<Store> GetStores()
+      
 
-        {
-            throw new NotImplementedException();
-        }
-    }
+       
 }
+    }
+
 
 // add employees to storeTeam list
