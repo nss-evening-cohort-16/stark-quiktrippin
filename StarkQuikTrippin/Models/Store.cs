@@ -16,6 +16,10 @@ namespace StarkQuikTrippin.Models
             RetailYearly = retailYearly;
             RetailYearly = retailCurrent;
         }
+        public Store(int storeNumber)
+        {
+            storeNumber = StoreNumber;
+        }
 
         public int StoreNumber { get; set; }
         public double GasYearly { get; set; }
@@ -24,6 +28,12 @@ namespace StarkQuikTrippin.Models
         public double RetailYearly { get; set;}
 
         public double RetailCurrent { get; set; }
+        public List <Employee> storeStaff { get; set; } = new List<Employee> ();
+        public void HireEmployees(Employee employee)
+
+        {
+            storeStaff.Add(employee);
+        }
     }
 
 }
