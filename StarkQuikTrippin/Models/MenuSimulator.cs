@@ -161,12 +161,28 @@ Enter district name and then add stores.
                     }
                 }
             }
+            BackToMenu();
         }
-    
+
+        public void BackToMenu()
+        {
+            Console.WriteLine("Press 0 to go back to menu");
+            bool successful = false;
+            var parsedInput = 0;
+            while (!successful)
+            {
+                var input = Console.ReadLine();
+                successful = int.TryParse(input, out parsedInput);
+            }
+            if (parsedInput == 0)
+            {
+                StartApp();
+            }
+
+        }
 
 
-
-public void GetDistricts()
+        public void GetDistricts()
         {
             Console.Clear();
             foreach (var district in _districts)
