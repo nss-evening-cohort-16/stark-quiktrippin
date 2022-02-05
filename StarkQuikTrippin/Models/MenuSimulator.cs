@@ -112,7 +112,8 @@ Enter district name and then add stores.
         private List<Store> _stores = new List<Store>();
         private List<Employee> _employees = new List<Employee>();
            
-       
+       // set 1: Getting Store Number 
+       // set 2: 
         public void CreateEmployee() {
             //{   var employees = new List<Employee>();
             //    var storeStaff = new Dictionary<Store, List<Employee>>();
@@ -143,10 +144,10 @@ Enter district name and then add stores.
                         {
                             store.HireEmployees(newEmployee);
                         }
-                        if (newEmployee.Title == "Store Manger")
+                        if (newEmployee.Title == "Store Manager")
                         {
                             store.StoreManager = newEmployee; 
-                        } else if (newEmployee.Title == "Assistant Manger")
+                        } else if (newEmployee.Title == "Assistant Manager")
                         {
                             store.AssistantManager = newEmployee;
                         } else if (newEmployee.Title == "Associate")
@@ -205,16 +206,16 @@ District Sales Report
 Store {store.StoreNumber}
 ----------------------------------
 1. Store Manager
-   {store.StoreManager}
-     Retail Sales: {store.StoreManagerSales}
+   {store.StoreManager.EmployeeName}
+     Retail Sales: {store.StoreManager.RetailSales}
 
 2. Assistant Manager
-   {store.AssistantManager}
-     Retail Sales: {store.AssistantManagerSales}
+   {store.AssistantManager.EmployeeName}
+     Retail Sales: {store.AssistantManager.RetailSales}
 
 3. Associate
-   {store.Associate}
-     Retail Sales: {store.AssociateSales}
+   {store.Associate.EmployeeName}
+     Retail Sales: {store.Associate.RetailSales}
 
 GasYearly: {store.GasYearly}
 Gas Current quarter: {store.GasCurrent}
