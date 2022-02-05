@@ -10,6 +10,10 @@ namespace StarkQuikTrippin.Models
     {
         public StoreManager(string name, string title, double retailSales) : base(name, title, retailSales)
         {
+
         }
+
+        
     }
+
 }
