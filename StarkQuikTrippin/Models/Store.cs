@@ -8,27 +8,27 @@ namespace StarkQuikTrippin.Models
 {
     internal class Store
     {
-        public Store(int storeNumber, double gasYearly, double gasCurrent, double retailYearly, double retailCurrent, string storeManger, string assistantManager, string associate, double storeManagerSales, double assistantManagerSales, double associateSales)
+        public Store(int storeNumber, double gasYearly, double gasCurrent, double retailYearly, double retailCurrent)
         {
             StoreNumber = storeNumber;
             GasYearly = gasYearly;
             GasCurrent = gasCurrent;
             RetailYearly = retailYearly;
             RetailCurrent = retailCurrent;
-            StoreManager = storeManger;
-            AssistantManager = assistantManager;    
-            Associate = associate;
-            StoreManagerSales = storeManagerSales;
-            AssistantManagerSales = assistantManagerSales;
-            AssociateSales = associateSales;
+            //StoreManager = storeManger;
+            //AssistantManager = assistantManager;    
+            //Associate = associate;
+            //StoreManagerSales = storeManagerSales;
+            //AssistantManagerSales = assistantManagerSales;
+            //AssociateSales = associateSales;
         }
         public Store(int storeNumber)
         {
             storeNumber = StoreNumber;
         }
-        public string StoreManager { get; set; }
-        public string AssistantManager { get; set; }
-        public string Associate { get; set; } 
+        public Employee StoreManager { get; set; }
+        public Employee AssistantManager { get; set; }
+        public Employee Associate { get; set; } 
         public int StoreNumber { get; set; }
         public double GasYearly { get; set; }
         public double GasCurrent { get; set; }
@@ -45,6 +45,12 @@ namespace StarkQuikTrippin.Models
         {
             storeStaff.Add(employee);
         }
+
+        public void HireManager(Employee employee)
+        {
+           
+        }
+
     }
 
 }

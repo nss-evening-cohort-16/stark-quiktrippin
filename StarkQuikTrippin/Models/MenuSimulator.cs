@@ -32,7 +32,7 @@ Enter district name and then add stores.
 ");
         }
 
-
+    
 
         public void StartApp()
         {
@@ -61,7 +61,7 @@ Enter district name and then add stores.
                         GenerateDisttrictReport();
                         break;
                     case 3:
-                        Console.WriteLine("Add Employee");
+                        CreateEmployee();
                         break;
                     case 4:
                         EnterStoreDistrictMenu();
@@ -95,6 +95,7 @@ Enter district name and then add stores.
         }
 
 
+
         public void CreateDistrict()
         {
             var district1 = new DistrictFactory();
@@ -107,13 +108,65 @@ Enter district name and then add stores.
             StartApp();
 
         }
-        public List<District> _districts = new List<District>();
-        static List<Store> _stores = new List<Store>();
+        private List<District> _districts = new List<District>();
+        private List<Store> _stores = new List<Store>();
+        private List<Employee> _employees = new List<Employee>();
+           
        
-        
-       
-        
-        public void GetDistricts()
+        public void CreateEmployee() {
+            //{   var employees = new List<Employee>();
+            //    var storeStaff = new Dictionary<Store, List<Employee>>();
+            bool successful = false;
+            var parsedInput = 0;
+            while (!successful)
+            {
+                Console.WriteLine("Enter employee store number:");
+                var input = Console.ReadLine();
+                successful = int.TryParse(input, out parsedInput);
+
+                var employee1 = new EmployeeFactory();
+                var buildingEmployee = true;
+                while (buildingEmployee)
+                {
+                    var newEmployee = employee1.BuildNewEmployee();
+                    if (newEmployee.EmployeeName != "")
+                    {
+                        _employees.Add(newEmployee);
+                    }
+                    else buildingEmployee = false;
+
+
+                    foreach (Store store in _stores)
+                    {
+                        Console.WriteLine(store.StoreNumber);
+                        if (parsedInput == store.StoreNumber)
+                        {
+                            store.HireEmployees(newEmployee);
+                        }
+                        if (newEmployee.Title == "Store Manger")
+                        {
+                            store.StoreManager = newEmployee; 
+                        } else if (newEmployee.Title == "Assistant Manger")
+                        {
+                            store.AssistantManager = newEmployee;
+                        } else if (newEmployee.Title == "Associate")
+                        {
+                            store.Associate = newEmployee;
+                        }
+                     foreach (Employee employee in store.storeStaff)
+                        {
+                            Console.WriteLine(employee.EmployeeName);
+                        }
+                        
+                    }
+                }
+            }
+        }
+    
+
+
+
+public void GetDistricts()
         {
             Console.Clear();
             foreach (var district in _districts)
@@ -156,6 +209,7 @@ Retail Current quarter: {store.RetailCurrent}
 
 ");
             }
+
         }
 
 
